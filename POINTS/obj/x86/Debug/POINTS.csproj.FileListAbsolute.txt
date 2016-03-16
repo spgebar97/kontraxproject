@@ -10,3 +10,6 @@ c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS\obj\x
 c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS\bin\Debug\POINTS.exe.config
 c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS\bin\Debug\POINTS.DAL.dll
 c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS\bin\Debug\POINTS.DAL.pdb
+C:\Users\Staj1\Desktop\New folder\POINTS\bin\Debug\POINTS.exe.config
+C:\Users\Staj1\Desktop\New folder\POINTS\obj\x86\Debug\POINTS.exe
+C:\Users\Staj1\Desktop\New folder\POINTS\obj\x86\Debug\POINTS.pdb
