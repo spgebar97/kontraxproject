@@ -1,0 +1,6 @@
+c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS.DAL\bin\Debug\POINTS.DAL.dll.config
+c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS.DAL\bin\Debug\POINTS.DAL.dll
+c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS.DAL\bin\Debug\POINTS.DAL.pdb
+c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS.DAL\obj\Debug\ResolveAssemblyReference.cache
+c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS.DAL\obj\Debug\POINTS.DAL.dll
+c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS.DAL\obj\Debug\POINTS.DAL.pdb

@@ -1,0 +1,12 @@
+c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS\bin\Debug\POINTS.exe
+c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS\bin\Debug\POINTS.pdb
+c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS\obj\x86\Debug\POINTS.Form1.resources
+c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS\obj\x86\Debug\POINTS.Properties.Resources.resources
+c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS\obj\x86\Debug\POINTS.exe
+c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS\obj\x86\Debug\POINTS.pdb
+c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS\bin\Debug\POINTS.exe.config
+c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS\bin\Debug\POINTS.DAL.dll
+c:\users\staj1\documents\visual studio 2010\Projects\KontraxProject\POINTS\bin\Debug\POINTS.DAL.pdb

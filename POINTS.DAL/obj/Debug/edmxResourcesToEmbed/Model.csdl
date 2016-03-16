@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PointsModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="PointsEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="EVENT" EntityType="PointsModel.EVENT" />
+    <EntitySet Name="POINT" EntityType="PointsModel.POINT" />
+    <EntitySet Name="STATUS" EntityType="PointsModel.STATUS" />
+    <EntitySet Name="EVENTS" EntityType="PointsModel.EVENTS" />
+    <AssociationSet Name="FK_EVENT_POINT" Association="PointsModel.FK_EVENT_POINT">
+      <End Role="POINT" EntitySet="POINT" />
+      <End Role="EVENT" EntitySet="EVENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EVENT_STATUS" Association="PointsModel.FK_EVENT_STATUS">
+      <End Role="STATUS" EntitySet="STATUS" />
+      <End Role="EVENT" EntitySet="EVENT" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="EVENT">
+    <Key>
+      <PropertyRef Name="EVENT_ID" />
+    </Key>
+    <Property Name="EVENT_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EVENT_DATE" Type="DateTime" Nullable="false" />
+    <Property Name="EVENT_TEXT" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="STATUS_ID" Type="Byte" />
+    <Property Name="POINT_ID" Type="Int32" />
+    <NavigationProperty Name="POINT" Relationship="PointsModel.FK_EVENT_POINT" FromRole="EVENT" ToRole="POINT" />
+    <NavigationProperty Name="STATUS" Relationship="PointsModel.FK_EVENT_STATUS" FromRole="EVENT" ToRole="STATUS" />
+  </EntityType>
+  <EntityType Name="POINT">
+    <Key>
+      <PropertyRef Name="POINT_ID" />
+    </Key>
+    <Property Name="POINT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="POINT_NUMBER" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="POINT_NAME" Type="String" MaxLength="50" Unicode="false" FixedLength="true" />
+    <Property Name="IS_ACTIVE" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="EVENT" Relationship="PointsModel.FK_EVENT_POINT" FromRole="POINT" ToRole="EVENT" />
+  </EntityType>
+  <EntityType Name="STATUS">
+    <Key>
+      <PropertyRef Name="STATUS_ID" />
+    </Key>
+    <Property Name="STATUS_ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STATUS_NAME" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="true" />
+    <NavigationProperty Name="EVENT" Relationship="PointsModel.FK_EVENT_STATUS" FromRole="STATUS" ToRole="EVENT" />
+  </EntityType>
+  <EntityType Name="EVENTS">
+    <Key>
+      <PropertyRef Name="EVENT_DATE" />
+    </Key>
+    <Property Name="EVENT_DATE" Type="DateTime" Nullable="false" />
+    <Property Name="TEXT" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="POINT_NUMBER" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="POINT_NAME" Type="String" MaxLength="50" Unicode="false" FixedLength="true" />
+    <Property Name="STATUS" Type="String" MaxLength="50" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <Association Name="FK_EVENT_POINT">
+    <End Role="POINT" Type="PointsModel.POINT" Multiplicity="0..1" />
+    <End Role="EVENT" Type="PointsModel.EVENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="POINT">
+        <PropertyRef Name="POINT_ID" />
+      </Principal>
+      <Dependent Role="EVENT">
+        <PropertyRef Name="POINT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EVENT_STATUS">
+    <End Role="STATUS" Type="PointsModel.STATUS" Multiplicity="0..1" />
+    <End Role="EVENT" Type="PointsModel.EVENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATUS">
+        <PropertyRef Name="STATUS_ID" />
+      </Principal>
+      <Dependent Role="EVENT">
+        <PropertyRef Name="STATUS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

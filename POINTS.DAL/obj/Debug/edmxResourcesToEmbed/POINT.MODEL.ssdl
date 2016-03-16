@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PointsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="PointsModelStoreContainer">
+    <EntitySet Name="EVENT" EntityType="PointsModel.Store.EVENT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="POINT" EntityType="PointsModel.Store.POINT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="STATUS" EntityType="PointsModel.Store.STATUS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EVENTS" EntityType="PointsModel.Store.EVENTS" store:Type="Views" store:Schema="dbo" store:Name="EVENTS">
+      <DefiningQuery>SELECT 
+      [EVENTS].[EVENT_DATE] AS [EVENT_DATE], 
+      [EVENTS].[TEXT] AS [TEXT], 
+      [EVENTS].[POINT_NUMBER] AS [POINT_NUMBER], 
+      [EVENTS].[POINT_NAME] AS [POINT_NAME], 
+      [EVENTS].[STATUS] AS [STATUS]
+      FROM [dbo].[EVENTS] AS [EVENTS]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_EVENT_POINT" Association="PointsModel.Store.FK_EVENT_POINT">
+      <End Role="POINT" EntitySet="POINT" />
+      <End Role="EVENT" EntitySet="EVENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EVENT_STATUS" Association="PointsModel.Store.FK_EVENT_STATUS">
+      <End Role="STATUS" EntitySet="STATUS" />
+      <End Role="EVENT" EntitySet="EVENT" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="EVENT">
+    <Key>
+      <PropertyRef Name="EVENT_ID" />
+    </Key>
+    <Property Name="EVENT_ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EVENT_DATE" Type="datetime" Nullable="false" />
+    <Property Name="EVENT_TEXT" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS_ID" Type="tinyint" />
+    <Property Name="POINT_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="POINT">
+    <Key>
+      <PropertyRef Name="POINT_ID" />
+    </Key>
+    <Property Name="POINT_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="POINT_NUMBER" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="POINT_NAME" Type="char" MaxLength="50" />
+    <Property Name="IS_ACTIVE" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="STATUS">
+    <Key>
+      <PropertyRef Name="STATUS_ID" />
+    </Key>
+    <Property Name="STATUS_ID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="STATUS_NAME" Type="char" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Points.dbo.EVENTS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="EVENTS">
+    <Key>
+      <PropertyRef Name="EVENT_DATE" />
+    </Key>
+    <Property Name="EVENT_DATE" Type="datetime" Nullable="false" />
+    <Property Name="TEXT" Type="nvarchar" MaxLength="255" />
+    <Property Name="POINT_NUMBER" Type="char" MaxLength="10" />
+    <Property Name="POINT_NAME" Type="char" MaxLength="50" />
+    <Property Name="STATUS" Type="char" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_EVENT_POINT">
+    <End Role="POINT" Type="PointsModel.Store.POINT" Multiplicity="0..1" />
+    <End Role="EVENT" Type="PointsModel.Store.EVENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="POINT">
+        <PropertyRef Name="POINT_ID" />
+      </Principal>
+      <Dependent Role="EVENT">
+        <PropertyRef Name="POINT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EVENT_STATUS">
+    <End Role="STATUS" Type="PointsModel.Store.STATUS" Multiplicity="0..1" />
+    <End Role="EVENT" Type="PointsModel.Store.EVENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATUS">
+        <PropertyRef Name="STATUS_ID" />
+      </Principal>
+      <Dependent Role="EVENT">
+        <PropertyRef Name="STATUS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

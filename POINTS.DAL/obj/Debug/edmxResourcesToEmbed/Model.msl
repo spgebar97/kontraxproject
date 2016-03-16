@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PointsModelStoreContainer" CdmEntityContainer="PointsEntities1">
+    <EntitySetMapping Name="EVENT">
+      <EntityTypeMapping TypeName="PointsModel.EVENT">
+        <MappingFragment StoreEntitySet="EVENT">
+          <ScalarProperty Name="EVENT_ID" ColumnName="EVENT_ID" />
+          <ScalarProperty Name="EVENT_DATE" ColumnName="EVENT_DATE" />
+          <ScalarProperty Name="EVENT_TEXT" ColumnName="EVENT_TEXT" />
+          <ScalarProperty Name="STATUS_ID" ColumnName="STATUS_ID" />
+          <ScalarProperty Name="POINT_ID" ColumnName="POINT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="POINT">
+      <EntityTypeMapping TypeName="PointsModel.POINT">
+        <MappingFragment StoreEntitySet="POINT">
+          <ScalarProperty Name="POINT_ID" ColumnName="POINT_ID" />
+          <ScalarProperty Name="POINT_NUMBER" ColumnName="POINT_NUMBER" />
+          <ScalarProperty Name="POINT_NAME" ColumnName="POINT_NAME" />
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STATUS">
+      <EntityTypeMapping TypeName="PointsModel.STATUS">
+        <MappingFragment StoreEntitySet="STATUS">
+          <ScalarProperty Name="STATUS_ID" ColumnName="STATUS_ID" />
+          <ScalarProperty Name="STATUS_NAME" ColumnName="STATUS_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EVENTS">
+      <EntityTypeMapping TypeName="PointsModel.EVENTS">
+        <MappingFragment StoreEntitySet="EVENTS">
+          <ScalarProperty Name="EVENT_DATE" ColumnName="EVENT_DATE" />
+          <ScalarProperty Name="TEXT" ColumnName="TEXT" />
+          <ScalarProperty Name="POINT_NUMBER" ColumnName="POINT_NUMBER" />
+          <ScalarProperty Name="POINT_NAME" ColumnName="POINT_NAME" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
